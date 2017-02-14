@@ -6,6 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
+var product_service_1 = require("./products/product.service");
 var AppComponent = (function () {
     function AppComponent() {
         this.pageTitle = 'Angular2: Getting Started';
@@ -15,7 +17,8 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'pm-app',
-        template: "\n        <div>\n        <h1>{{pageTitle}}</h1>\n        <pm-products></pm-products>\n        </div>"
+        template: "\n        <div>\n        <h1>{{pageTitle}}</h1>\n        <pm-products></pm-products>\n        </div>",
+        providers: [product_service_1.ProductService, http_1.Http]
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
