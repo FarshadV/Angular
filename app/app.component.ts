@@ -1,17 +1,28 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
-// import 'rxjs/Rx.js';
-// import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx.js';    //Load all features
+
 import { NgModule } from '@angular/core';
 import { ProductService } from './products/product.service';
+
 
 @Component({
     selector: 'pm-app',
     template: `
-        <div>
-        <h1>{{pageTitle}}</h1>
-        <pm-products></pm-products>
-        </div>`,
-    providers: [ProductService, Http]
+    <div>
+        <nav class='navbar navbar-default'>
+            <div class='container-fluid'>
+                <a class='navbar-brand'>{{pageTitle}}</a>
+                <ul class='nav navbar-nav'>
+                    <li><a [routerLink]="['welcome']">Home</a></li>
+                    <li><a [routerLink]="['products']">Product List</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class='container'>
+            <router-outlet></router-outlet>
+        </div>
+     </div>
+     `,
+    providers: [ProductService]
 })
 export class AppComponent { pageTitle: String = 'Angular2: Getting Started'; }

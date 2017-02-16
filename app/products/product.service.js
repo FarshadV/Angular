@@ -11,12 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var Observable_1 = require("rxjs/Observable");
+// import 'rxjs/add/operator/map';
+// import 'rxjs/add/operator/do';
+// import 'rxjs/add/operator/catch' ;
 var ProductService = (function () {
     function ProductService(_http) {
         this._http = _http;
         this._productUrl = 'api/products/products.json';
     }
     ProductService.prototype.getProducts = function () {
+        console.log(this._productUrl);
         return this._http.get(this._productUrl)
             .map(function (response) { return response.json(); })
             .do(function (data) { return console.log("all: " + JSON.stringify(data)); })

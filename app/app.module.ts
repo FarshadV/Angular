@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
 
@@ -10,12 +11,30 @@ import { ProductFilterPipe } from './products/product-filter.pipe';
 
 import { StarComponent } from './shared/star.component';
 
+import { WelcomeComponent } from './home/welcome.component';
+import { ProductDetailComponent } from './products/product-detail.component';
+
+
+const appRoutes: Routes = [
+    {path: '', redirectTo: '/welcome', pathMatch: 'full'},
+    { path: 'welcome', component: WelcomeComponent },
+    { path: 'products', component: ProductListComponent },
+    { path: 'products/:id', component: ProductDetailComponent }
+];
+
 @NgModule({
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, 
+            FormsModule, 
+            HttpModule,
+            RouterModule.forRoot(appRoutes) ],
+
   declarations: [AppComponent, 
+                 WelcomeComponent,
                  ProductListComponent, 
                  ProductFilterPipe,
-                 StarComponent],
+                 StarComponent,
+                 ProductDetailComponent],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
