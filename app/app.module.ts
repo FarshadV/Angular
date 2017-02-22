@@ -16,10 +16,10 @@ import { ProductDetailComponent } from './products/product-detail.component';
 
 
 const appRoutes: Routes = [
-    {path: '', redirectTo: '/welcome', pathMatch: 'full'},
+    {path: '', redirectTo: 'welcome', pathMatch: 'full'},
     { path: 'welcome', component: WelcomeComponent },
-    { path: 'products', component: ProductListComponent },
-    { path: 'products/:id', component: ProductDetailComponent }
+    { path: 'product-list', component: ProductListComponent },
+    { path: 'product-detail/:id', component: ProductDetailComponent }
 ];
 
 @NgModule({

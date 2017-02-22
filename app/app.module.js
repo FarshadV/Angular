@@ -17,10 +17,10 @@ var star_component_1 = require("./shared/star.component");
 var welcome_component_1 = require("./home/welcome.component");
 var product_detail_component_1 = require("./products/product-detail.component");
 var appRoutes = [
-    { path: '', redirectTo: '/welcome', pathMatch: 'full' },
+    { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     { path: 'welcome', component: welcome_component_1.WelcomeComponent },
-    { path: 'products', component: product_list_component_1.ProductListComponent },
-    { path: 'products/:id', component: product_detail_component_1.ProductDetailComponent }
+    { path: 'product-list', component: product_list_component_1.ProductListComponent },
+    { path: 'product-detail/:id', component: product_detail_component_1.ProductDetailComponent }
 ];
 var AppModule = (function () {
     function AppModule() {
